@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
       <h1>
-        Welcome to Student Marketplace
+        Welcome to Student Marketplace 
       </h1>
     </div>
   )
