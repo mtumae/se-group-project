@@ -8,8 +8,11 @@ import './styles.css'
 import reportWebVitals from './reportWebVitals.ts'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ConvexQueryClient } from '@convex-dev/react-query'
-import { ConvexProvider } from 'convex/react'
-
+import { AuthLoading, ConvexProvider,  } from 'convex/react'
+import { ConvexAuthProvider } from "@convex-dev/auth/react";
+import { Authenticated, Unauthenticated } from 'convex/react'
+import { AuthForm } from './components/authForm.tsx'
+import { Loader2 } from 'lucide-react'
 
 
 
@@ -51,13 +54,19 @@ const rootElement = document.getElementById('app')
 if (rootElement && !rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement)
   root.render(
-
-       <ConvexProvider client={convexQueryClient.convexClient}>
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-      </QueryClientProvider>
-      </ConvexProvider>
-
+       <ConvexAuthProvider client={convexQueryClient.convexClient}>
+        <QueryClientProvider client={queryClient}>
+          <AuthLoading>
+            <Loader2 className="animate-spin h-5 w-5 mr-3" />
+          </AuthLoading>
+          <Authenticated>
+            <RouterProvider router={router} />
+          </Authenticated>
+          <Unauthenticated>
+            <AuthForm />
+          </Unauthenticated>
+        </QueryClientProvider>
+      </ConvexAuthProvider>
   )
 }
 

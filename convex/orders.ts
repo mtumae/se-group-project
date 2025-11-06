@@ -19,6 +19,22 @@ export const getOrders = query({
 
 
 
+export const getOrdersByUserId = query({
+    args:{
+        userId: v.string()
+    },
+    handler: async (ctx, args) => {
+        const orders = await ctx.db
+        .query("orders")
+        .withIndex("byUserId", (q) => q.eq("userId", args.userId))
+        .order("desc")
+        .collect()
+        return orders
+    }
+});
+
+
+
 export const addOrder = mutation({
     args: {
         items: v.array(

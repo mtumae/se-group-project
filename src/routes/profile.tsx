@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Link, useNavigate } from '@tanstack/react-router'
 import { Button, Select, Textarea } from "flowbite-react";
 import { FileInput, Label, TextInput } from "flowbite-react";
 import { Calculator, CirclePlus, CloudUpload, DollarSign, Loader2, Paperclip, Plus, X } from 'lucide-react';
@@ -6,14 +6,11 @@ import { useEffect, useState } from 'react';
 import { useMutation } from 'convex/react';
 import { useForm, type SubmitHandler} from "react-hook-form"
 import { usePaginatedQuery } from "convex/react";
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useSuspenseQuery, useQuery } from "@tanstack/react-query";
 import { convexQuery } from '@convex-dev/react-query';
+
 import { api } from "../../convex/_generated/api";
-import { getAllOrders } from '..';
-
-
-
-
+import { useAuthActions } from '@convex-dev/auth/react';
 
 interface ItemType {
   userId: string,
@@ -53,10 +50,19 @@ function RouteComponent() {
 
   const {register, handleSubmit, watch, formState: {errors}}= useForm<ItemType>();
 
+  const {data:session, isLoading:loadingSession} = useQuery(convexQuery(api.users.currentUser, {}));
 
+
+  const { signOut } = useAuthActions();
+
+  
   //Convex
   const generateUploadUrl = useMutation(api.items.generateUploadUrl);
   const addItem = useMutation(api.items.addItem);
+
+
+  //Router
+  const navigate = useNavigate();
 
 
 
@@ -108,7 +114,30 @@ function RouteComponent() {
 
 
   return(
-    <div className='grid '>
+    <div className='grid gap-10 justify-self-center'>
+      <div className='flex justify-between'>
+        <h1>Welcome {session?.fullName}</h1>
+
+
+
+        <div className='flex gap-5'>
+        {session?.role==="admin" && 
+        <Link className='bg-gray-300 border-gray-400 border rounded-md p-3 text-gray-400' to="/admin">
+        Admin
+        
+        </Link>}
+
+        <button
+        className='bg-red-600 rounded-md p-3 text-white' 
+        onClick={
+          ()=>{
+            signOut()
+          }
+        }>Log out</button>
+        </div>
+
+      </div>
+   
       <div className='md:flex sm:grid justify-between gap-5  '>
       {file ? 
       <div className='relative'>
@@ -122,7 +151,7 @@ function RouteComponent() {
       :
       <Label
         htmlFor="dropzone-file"
-        className="flex  w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 "
+        className="flex w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 "
       >
         <div className="flex flex-col items-center justify-center pb-6 pt-5">
           <CloudUpload className="mb-3 h-10 w-10 text-gray-400" />
@@ -161,12 +190,14 @@ function RouteComponent() {
       </div>
 
 
-    <div className='mt-10'>
-      <h1>Your Orders</h1>
+<div className='flex justify-between'>
+
+    <div className=''>
+      <h1>Orders you made</h1>
       <div className='grid grid-cols-2 p-5'>
         {results.map((o)=>(
           <div
-          className='w-full text-xs flex justify-between' 
+          className='w-full text-xs flex gap-8 justify-between' 
           key={o._id}>
             <p>{o.itemName}</p>
             <p>x{o.quantity}</p>
@@ -180,6 +211,16 @@ function RouteComponent() {
         ))}
       </div>
       </div>
+
+
+      <div className=''>
+        <h1>Orders you have gotten</h1>
+      </div>
+
+      </div>
+
+
+
     </div>
   )
 }

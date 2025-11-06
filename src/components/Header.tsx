@@ -3,8 +3,7 @@ import { CircleUser, ShoppingCart } from 'lucide-react';
 import { useState } from 'react'
 
 const menuleft = [
-  
-  {label:"Marketplace", route:"/market"},
+  {label:"Marketplace", route:"/"},
 ]
 
 const menuright = [
@@ -17,7 +16,7 @@ export default function Header() {
   const [active, setActive]=useState("")
   console.log(active)
   return (
-    <header className="p-4 flex rounded-xl shadow-sm gap-2 bg-white text-black justify-between">
+    <header className="p-4 w-full flex rounded-xl shadow-sm gap-2 bg-white text-black justify-between">
       <nav className='w-full'>
         <div className="px-2 flex  justify-between items-center">
           <div className='flex gap-10 items-center'>
