@@ -14,7 +14,7 @@ import { Authenticated, Unauthenticated } from 'convex/react'
 import { AuthForm } from './components/authForm.tsx'
 import { Loader2 } from 'lucide-react'
 
-
+ import { ToastContainer, toast } from 'react-toastify';
 
 // Create a new router instance
 const router = createRouter({
@@ -64,6 +64,7 @@ if (rootElement && !rootElement.innerHTML) {
           </AuthLoading>
           <Authenticated>
             <RouterProvider router={router} />
+            <ToastContainer position="bottom-right" autoClose={5000} hideProgressBar={true} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light"/>
           </Authenticated>
           <Unauthenticated>
             <AuthForm />

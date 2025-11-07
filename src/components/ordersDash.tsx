@@ -3,9 +3,13 @@ import { convexQuery } from '@convex-dev/react-query'
 import { api } from "../../convex/_generated/api";
 import { CircleUser } from 'lucide-react';
 import { Skeleton } from '@mui/material';
+import { useMutation } from 'convex/react';
     
 export default function ordersDash(){
     const {data, isLoading, refetch}=useQuery(convexQuery(api.orders.getAllOrders, {}));
+    const updateOrder = useMutation(api.orders.updateOrderStatus);
+
+    
 
     return(
         <div className='mt-10'>

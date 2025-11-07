@@ -69,3 +69,16 @@ export const getAllOrders = query({
         return orders;
     }
 });
+
+
+export const updateOrderStatus = mutation({
+    args: {
+        orderId: v.id("orders"),
+        status: v.string()
+    },
+    handler: async (ctx, args) => {
+        await ctx.db.patch(args.orderId, {
+            status: args.status}
+        )
+    }
+});

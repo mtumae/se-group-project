@@ -1,6 +1,6 @@
 import { getAuthUserId } from "@convex-dev/auth/server";
-import { query } from "./_generated/server";
-
+import { mutation, query } from "./_generated/server";
+import { convexToJson, v } from "convex/values";
 
 export const currentUser = query({
   handler: async (ctx) => {
@@ -19,3 +19,19 @@ export const getAllUsers = query({
     return users;
   },
 });
+
+
+export const addUser= mutation({
+  args: { 
+    email:  v.string(),
+    password: v.string(),
+    fullName: v.optional(v.string()),
+},
+  handler: async (ctx, args) => {
+    const user = await ctx.db.insert("users", {
+      email: args.email,
+      fullName: args.fullName,
+    });
+    return user;
+  }
+})
