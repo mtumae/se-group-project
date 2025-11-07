@@ -110,6 +110,5 @@ export const priceRangesearch = query({
     console.log("Items in price range:", sorted.length);
     return sorted;
   }
-
 });
 

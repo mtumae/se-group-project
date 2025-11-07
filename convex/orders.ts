@@ -60,3 +60,12 @@ export const addOrder = mutation({
         }
     }
 });
+
+
+
+export const getAllOrders = query({
+    handler: async (ctx) => {
+        const orders = await ctx.db.query("orders").collect();
+        return orders;
+    }
+});

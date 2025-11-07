@@ -3,7 +3,7 @@ import { CircleUser, ShoppingCart } from 'lucide-react';
 import { useState } from 'react'
 
 const menuleft = [
-  {label:"Marketplace", route:"/"},
+  {label:"StrathMart", route:"/"},
 ]
 
 const menuright = [

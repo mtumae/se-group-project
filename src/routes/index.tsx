@@ -40,6 +40,7 @@ function RouteComponent() {
       return;
     }
     setCart([...cart, item]);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   async function checkOut(){
@@ -100,7 +101,7 @@ function RouteComponent() {
       />
 
     <div className='flex justify-between items-center gap-5 p-10  rounded-lg'>
-      {cart.length>0 && <div className='bg-amber-500 rounded-full absolute p-1' />}
+   
       <Popover
       trigger='hover'
       aria-labelledby="default-popover"
@@ -123,7 +124,7 @@ function RouteComponent() {
           {cart.length>0 &&
           <button
           onClick={checkOut} 
-          className='p-2 mb-3 border text-amber-500 cursor-pointer rounded-full hover:bg-amber-500 focus:outline-0 focus:ring-0  hover:text-white  transition-all duration-300'>
+          className='p-2 mb-3 border text-amber-500 cursor-pointer rounded-full  hover:bg-amber-500 focus:outline-0 focus:ring-0  hover:text-white  transition-all duration-300'>
             {ordering ? 'Checking out...' : 'Checkout'}
             </button>
             }
@@ -131,7 +132,7 @@ function RouteComponent() {
       }
       >
         <button className='p-2 text-amber-500 cursor-pointer rounded-full hover:bg-amber-500 hover:text-white  transition-all duration-300'>
-          <ShoppingCart size={30}/>
+          <ShoppingCart className={cart.length>0?"animate-bounce":''} size={40}/>
         </button>
       </Popover>
       <select onChange={(e)=>{setCategories(e.target.value)}} className='p-3 rounded-lg border-gray-300 border '>

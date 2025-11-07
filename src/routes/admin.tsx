@@ -2,25 +2,48 @@ import { createFileRoute } from '@tanstack/react-router'
 import { useQuery } from '@tanstack/react-query'
 import { convexQuery } from '@convex-dev/react-query'
 import { api } from "../../convex/_generated/api";
+import { CircleUser } from 'lucide-react';
+import { useState } from 'react';
+import UsersDash from '@/components/usersDash';
+import OrdersDash from '@/components/ordersDash';
+import ItemsDash from '@/components/itemsDash';
+import { da } from '@faker-js/faker';
+
+
+
 export const Route = createFileRoute('/admin')({
   component: RouteComponent,
 })
 
+
+
 function RouteComponent() {
-    const {data:users, isLoading:usersLoading}=useQuery(convexQuery(api.users.getAllUsers, {}));
+    const [dashType, setDashType]=useState<'users' | 'orders' | 'items'>("users")
+   
+    function handleDashChange() {
+        switch(dashType) {
+            case 'users':
+                return <UsersDash />;
+            case 'orders':
+                return <OrdersDash />;
+            case 'items':
+                return <ItemsDash />;
+        }
+    }
+
+
   return (
-    <div>
-        <h1 className='text-xl font-semibold'>Users</h1>
-        {usersLoading ? (
-          <p>Loading...</p>
-        ) : (
-          <ul>
-            {users?
-            users.map((user) => (
-              <li key={user._id}>{user.email}</li>
-            )) : null}
-          </ul>
-        )}
+    <div className='mt-10'>
+
+        <div className='justify-self-center flex gap-10'>
+            <button onClick={()=>{setDashType('users')}} className={`${dashType === 'users' ? 'bg-amber-500 text-white' : ''} text-xl mb-4  text-amber-500 p-2 rounded-md transition-all duration-200`}>Users</button>
+            <button onClick={()=>{setDashType('orders')}} className={`${dashType === 'orders' ? 'bg-amber-500 text-white' : ''} text-xl mb-4 text-amber-500 p-2 rounded-md transition-all duration-200`}>Orders</button>
+            <button onClick={()=>{setDashType('items')}} className={`${dashType === 'items' ? 'bg-amber-500 text-white' : ''} text-xl mb-4 text-amber-500 p-2 rounded-md transition-all duration-200`}>Items</button>
+        </div>
+
+
+        {handleDashChange()}
+    
     </div>
   )
 }

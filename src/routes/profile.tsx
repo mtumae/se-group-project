@@ -1,7 +1,7 @@
 import { createFileRoute, Link, useNavigate } from '@tanstack/react-router'
 import { Button, Select, Textarea } from "flowbite-react";
 import { FileInput, Label, TextInput } from "flowbite-react";
-import { Calculator, CirclePlus, CloudUpload, DollarSign, Loader2, Paperclip, Plus, X } from 'lucide-react';
+import { Calculator, CirclePlus, CloudUpload, DollarSign, LayoutDashboard, Loader2, LogOut, Paperclip, Plus, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useMutation } from 'convex/react';
 import { useForm, type SubmitHandler} from "react-hook-form"
@@ -122,18 +122,22 @@ function RouteComponent() {
 
         <div className='flex gap-5'>
         {session?.role==="admin" && 
-        <Link className='bg-gray-300 border-gray-400 border rounded-md p-3 text-gray-400' to="/admin">
+        <Link className='bg-gray-300 flex gap-4 border-gray-400 border rounded-md p-3 text-gray-400' to="/admin">
         Admin
+        <LayoutDashboard />
         
         </Link>}
 
         <button
-        className='bg-red-600 rounded-md p-3 text-white' 
+        className='bg-red-600 rounded-md flex gap-4 p-3 text-white' 
         onClick={
           ()=>{
             signOut()
           }
-        }>Log out</button>
+        }>
+          Log out
+          <LogOut />
+          </button>
         </div>
 
       </div>

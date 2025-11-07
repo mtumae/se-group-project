@@ -57,7 +57,10 @@ if (rootElement && !rootElement.innerHTML) {
        <ConvexAuthProvider client={convexQueryClient.convexClient}>
         <QueryClientProvider client={queryClient}>
           <AuthLoading>
-            <Loader2 className="animate-spin h-5 w-5 mr-3" />
+            <div className='grid m-20 justify-self-center text-center items-center'>
+              <p className='text-center'>Auth loading</p>
+              <Loader2 className="animate-spin " />
+            </div>
           </AuthLoading>
           <Authenticated>
             <RouterProvider router={router} />
