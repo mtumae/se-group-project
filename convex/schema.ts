@@ -9,26 +9,33 @@ export default defineSchema({
     email:v.string(),
     fullName:v.optional(v.string()),
     role:v.optional(v.string()),
-  }),
+  }).searchIndex("fullName", {
+    searchField:'fullName'
+  })
+  ,
 
   items: defineTable({
     userId: v.string(),
-    imageUrl: v.string(),
+    username: v.string(),
+    imageUrl: v.optional(v.string()),
+    link:v.optional(v.string()),//for faker items
     itemName: v.string(),
     itemDescription: v.string(),
-    price: v.string(),
+    price: v.number(),
     category: v.string(),
     createdAt: v.string(),
+    disabled: v.optional(v.boolean()),
   }).searchIndex("itemName", {
     searchField:'itemName',
-    filterFields:['category', 'price']
+    filterFields:['category'],
+    staged: false,
   }),
   
   orders: defineTable({
     userId: v.string(),
+    username: v.string(),
     itemId: v.string(),
     itemName: v.string(),
-    quantity: v.number(),
     orderDate: v.string(),
     status: v.string(),
   }).index('byUserId', ['userId'])

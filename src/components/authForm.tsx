@@ -12,7 +12,7 @@ export function AuthForm() {
 
   if(step === "signUp"){
   return (
-    <div className="items-center grid p-40">
+    <div className="items-center grid p-10">
     <form
     className="grid gap-10 "
       onSubmit={(event) => {
@@ -34,11 +34,14 @@ export function AuthForm() {
       <Input name="fullname" placeholder="Full Name" type="text" />
       <Input name="password" placeholder="Password" type="password" />
       
-      <button type="submit">Sign up</button>
+      <button  
+      className='p-2 text-white cursor-pointer rounded-lg bg-amber-500 hover:bg-amber-600 w-1/2 justify-self-center transition-all duration-300' 
+      type="submit">Sign up</button>
       
     </form>
 
     <button
+    className="hover:underline hover:text-amber-500 mt-8"
         type="button"
         onClick={() => {
           setStep("signIn");
@@ -50,9 +53,9 @@ export function AuthForm() {
   );
 }else {
     return(
-        <div className="items-center grid p-40" >
+        <div className="items-center grid p-10" >
     <form
-    className="grid gap-10 p-10"
+    className="grid gap-10 p-10 "
       onSubmit={(event) => {
       
         event.preventDefault();
@@ -68,19 +71,20 @@ export function AuthForm() {
       }}
     >
         <div>
-            <h1 className="text-center text-xl">Sign in</h1>
+            <h1 className="text-center text-xl">Sign in to StrathMart to begin</h1>
             {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
             <Input className="" name="flow" type="hidden" value={step} />
         </div>
-        
       <Input name="email" placeholder="Email" type="text" />
       <Input name="password" placeholder="Password" type="password" />
-      
-      <button type="submit">Sign in</button>
+      <button  
+      className='p-2 text-white cursor-pointer rounded-lg bg-amber-500 hover:bg-amber-600 w-1/2 justify-self-center transition-all duration-300'
+       type="submit">Sign in</button>
      
     </form>
 
      <button
+        className="hover:underline hover:text-amber-500"
         type="button"
         onClick={() => {
           setStep("signUp");
@@ -88,8 +92,6 @@ export function AuthForm() {
       >
      Dont have an account? Sign up
       </button>
-     
-     
       </div>
     )
 

@@ -17,7 +17,14 @@ export const getOrders = query({
     }
 });
 
-
+export const deleteOrder = mutation({   
+    args: {
+        orderId: v.id("orders")
+    },
+    handler: async (ctx, args) => {
+        await ctx.db.delete(args.orderId);
+    }
+});
 
 export const getOrdersByUserId = query({
     args:{
@@ -40,9 +47,9 @@ export const addOrder = mutation({
         items: v.array(
             v.object({
                 userId: v.string(),
-                itemId: v.string(),
+                username:v.string(),
+                itemId: v.id("items"),
                 itemName: v.string(),
-                quantity: v.number(),
             })
         )
     },
@@ -51,13 +58,15 @@ export const addOrder = mutation({
         for (const item of items){
             await ctx.db.insert("orders", {
                 userId: item.userId,
+                username:item.username,
                 itemId: item.itemId,
                 itemName: item.itemName,
-                quantity: item.quantity,
                 orderDate: new Date().toISOString(),
                 status: "pending",
             });
+            await ctx.db.delete(item.itemId)
         }
+        
     }
 });
 
@@ -80,5 +89,21 @@ export const updateOrderStatus = mutation({
         await ctx.db.patch(args.orderId, {
             status: args.status}
         )
+    }
+});
+
+
+
+export const getOrdersForUserId = query({
+    args:{
+        userId: v.string()
+    },
+    handler: async (ctx, args) => {
+        const orders = await ctx.db
+        .query("orders")
+        .withIndex("byUserId", (q) => q.eq("userId", args.userId))
+        .order("desc")
+        .collect()
+        return orders
     }
 });
