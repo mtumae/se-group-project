@@ -1,14 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { useQuery } from '@tanstack/react-query'
-import { convexQuery } from '@convex-dev/react-query'
-import { api } from "../../convex/_generated/api";
-import { CircleUser } from 'lucide-react';
 import { useState } from 'react';
 import UsersDash from '@/components/usersDash';
 import OrdersDash from '@/components/ordersDash';
 import ItemsDash from '@/components/itemsDash';
-import { da } from '@faker-js/faker';
-import { toast } from 'react-toastify';
+
 
 
 

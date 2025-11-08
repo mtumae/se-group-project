@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 
@@ -8,13 +8,13 @@ import './styles.css'
 import reportWebVitals from './reportWebVitals.ts'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ConvexQueryClient } from '@convex-dev/react-query'
-import { AuthLoading, ConvexProvider,  } from 'convex/react'
+import { AuthLoading,  } from 'convex/react'
 import { ConvexAuthProvider } from "@convex-dev/auth/react";
 import { Authenticated, Unauthenticated } from 'convex/react'
 import { AuthForm } from './components/authForm.tsx'
 import { Loader2 } from 'lucide-react'
 
- import { ToastContainer, toast } from 'react-toastify';
+ import { ToastContainer } from 'react-toastify';
 
 // Create a new router instance
 const router = createRouter({

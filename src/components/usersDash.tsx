@@ -2,7 +2,6 @@ import { useQuery } from '@tanstack/react-query'
 import { convexQuery } from '@convex-dev/react-query'
 import { api } from "../../convex/_generated/api";
 import { CirclePlus, CircleUser, EllipsisVertical } from 'lucide-react';
-import { useMutation } from 'convex/react';
 import { Popover } from 'flowbite-react';
 import AddUserForm from './addUserForm';
 

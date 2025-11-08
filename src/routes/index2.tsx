@@ -1,16 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router'
-import logo from '../logo.svg'
 
 export const Route = createFileRoute('/index2')({
   component: App,
 })
 
 
-const promos = [
-  {title:"50% off on all electronics!", description:"Get the best deals on electronics this week only."},
-  {title:"Buy 1 Get 1 Free on Clothing!", description:"Refresh your wardrobe with our exclusive clothing offer."},
-  {title:"Free Shipping on Orders Over $50!", description:"Enjoy free shipping when you spend $50 or more."},
-]
+
 
 function App() {
 

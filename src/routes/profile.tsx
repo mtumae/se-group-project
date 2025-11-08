@@ -1,12 +1,12 @@
-import { createFileRoute, Link, useNavigate } from '@tanstack/react-router'
-import { Button, Popover, Select, Textarea } from "flowbite-react";
+import { createFileRoute, Link} from '@tanstack/react-router'
+import { Button, Popover, Textarea } from "flowbite-react";
 import { FileInput, Label, TextInput } from "flowbite-react";
-import { Calculator, CirclePlus, CloudUpload, DollarSign, Ellipsis, EllipsisVertical, LayoutDashboard, Loader2, LogOut, Paperclip, Plus, X } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import {  CirclePlus, CloudUpload, DollarSign,  EllipsisVertical, LayoutDashboard, Loader2, LogOut, Paperclip, X } from 'lucide-react';
+import {  useState } from 'react';
 import { useMutation } from 'convex/react';
 import { useForm, type SubmitHandler} from "react-hook-form"
 import { usePaginatedQuery } from "convex/react";
-import { useSuspenseQuery, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { convexQuery } from '@convex-dev/react-query';
 
 import { api } from "../../convex/_generated/api";
@@ -51,9 +51,9 @@ function RouteComponent() {
   const [newStatus, setNewStatus]=useState<'pending' | 'shipped' | 'delivered'|string>('');
 
 
-  const {register, handleSubmit, watch, formState: {errors}}= useForm<ItemType>();
+  const {register, handleSubmit}= useForm<ItemType>();
 
-  const {data:session, isLoading:loadingSession} = useQuery(convexQuery(api.users.currentUser, {}));
+  const {data:session} = useQuery(convexQuery(api.users.currentUser, {}));
 
 
   const { signOut } = useAuthActions();
@@ -63,13 +63,7 @@ function RouteComponent() {
   const generateUploadUrl = useMutation(api.items.generateUploadUrl);
   const updateStatus = useMutation(api.orders.updateOrderStatus)
   const addItem = useMutation(api.items.addItem);
-  const addRandomItems = useMutation(api.items.addRandomItems);
-
-
-  //Router
-  const navigate = useNavigate();
-
-
+  
 
  
 
@@ -116,7 +110,7 @@ function RouteComponent() {
 
 
 
-  const {results, status, loadMore} = usePaginatedQuery(api.orders.getOrders, {}, {initialNumItems:20})
+  const {results} = usePaginatedQuery(api.orders.getOrders, {}, {initialNumItems:20})
 
   const {data:ordersForThisUser, isLoading:loadingOrdersForUser, refetch:refetchOrdersForUser} = useQuery(convexQuery(api.orders.getOrdersForUserId, {userId:session?._id!}))
 

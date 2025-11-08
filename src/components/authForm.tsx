@@ -1,8 +1,6 @@
 import { useAuthActions } from "@convex-dev/auth/react";
 import { useState } from "react";
 import { Input } from "@mui/material";
-import { ConvexError } from "convex/values";
-import { set } from "react-hook-form";
 
 export function AuthForm() {
   const { signIn } = useAuthActions();

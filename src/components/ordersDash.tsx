@@ -1,8 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { convexQuery } from '@convex-dev/react-query'
 import { api } from "../../convex/_generated/api";
-import { CircleUser, EllipsisVertical } from 'lucide-react';
-import { Select, Skeleton, MenuItem, InputLabel } from '@mui/material';
+import { EllipsisVertical } from 'lucide-react';
 import { useMutation } from 'convex/react';
 import { Popover } from 'flowbite-react';
 import { useState } from 'react';

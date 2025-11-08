@@ -1,14 +1,12 @@
 import { useQuery } from '@tanstack/react-query'
 import { convexQuery } from '@convex-dev/react-query'
 import { api } from "../../convex/_generated/api";
-import { CircleUser } from 'lucide-react';
-import { Skeleton } from '@mui/material';
-    
+
 
 
 
 export default function ItemsDash() {
-    const {data, isLoading, refetch} = useQuery(convexQuery(api.items.getAllItems, {}));
+    const {data, isLoading} = useQuery(convexQuery(api.items.getAllItems, {}));
     return (
             <div className='mt-10'>
             <div className='flex justify-between items-center'>

@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router'
-import { CircleUser, ShoppingCart } from 'lucide-react';
+import { CircleUser } from 'lucide-react';
 import { useState } from 'react'
 
 const menuleft = [
