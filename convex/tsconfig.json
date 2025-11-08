@@ -20,6 +20,6 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": ["./**/*"],
+  "include": ["./**/*", "../generateKeys.mjs"],
   "exclude": ["./_generated"]
 }
