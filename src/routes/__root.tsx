@@ -1,9 +1,7 @@
-import { Outlet, createRootRoute } from '@tanstack/react-router'
+import { Outlet } from '@tanstack/react-router'
 import { QueryClient } from "@tanstack/react-query";
 import { createRootRouteWithContext } from "@tanstack/react-router";
-//import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-//import { TanstackDevtools } from '@tanstack/react-devtools'
+
 
 import Header from '../components/Header'
 

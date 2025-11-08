@@ -121,7 +121,7 @@ function createRandomItem(){
 }
 
 export const getRandomItems = query({
-    handler: async (ctx) => {
+    handler: async () => {
         faker.seed()
         const data = Array.from({length:20}, () => null).map(() => 
           createRandomItem()

@@ -14,10 +14,10 @@ export default defineConfig({
     tailwindcss(),
     flowbiteReact()
   ],
-  test: {
-    globals: true,
-    environment: 'jsdom',
-  },
+  // test: {
+  //   globals: true,
+  //   environment: 'jsdom',
+  // },
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),
