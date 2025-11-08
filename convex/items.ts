@@ -1,6 +1,6 @@
-import { paginationOptsValidator } from "convex/server";
+
 import { mutation, query } from "./_generated/server";
-import { convexToJson, v } from "convex/values";
+import { v } from "convex/values";
 import { faker } from "@faker-js/faker";
 
 export const generateUploadUrl = mutation({

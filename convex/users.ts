@@ -1,6 +1,6 @@
 import { getAuthUserId } from "@convex-dev/auth/server";
 import { mutation, query } from "./_generated/server";
-import { convexToJson, v } from "convex/values";
+import { v } from "convex/values";
 
 export const currentUser = query({
   handler: async (ctx) => {
