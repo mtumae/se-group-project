@@ -1,20 +1,18 @@
-import { integer, pgTable, varchar, text, boolean, timestamp } from "drizzle-orm/pg-core";
+import { integer, pgTable, timestamp, varchar } from "drizzle-orm/pg-core";
 
 
 
-export const user = pgTable("user", {
-  id: text("id").primaryKey(),
-  name: text("name").notNull(),
-  email: text("email").notNull().unique(),
-  emailVerified: boolean("email_verified")
-    .$defaultFn(() => false)
-    .notNull(),
-  image: text("image"),
-  createdAt: timestamp("created_at")
-    .$defaultFn(() => /* @__PURE__ */ new Date())
-    .notNull(),
-  updatedAt: timestamp("updated_at")
-    .$defaultFn(() => /* @__PURE__ */ new Date())
-    .notNull(),
-  role: text("role").default("user"),
+
+export const orders = pgTable("orders", {
+    id: integer().primaryKey().generatedAlwaysAsIdentity(),
+    userid: varchar({ length: 255 }).notNull(),
+    itemName: varchar({ length: 255 }).notNull(),
+    itemId: varchar({ length: 255 }).notNull(),
+    itemImageUrl: varchar({ length: 255 }).notNull(),
+    quantity: integer().notNull(),
+    orderDate: timestamp('orderDate').notNull(),
+    status: varchar({ length: 255 }).notNull(),
 });
+
+
+

@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
 
 body {
   @apply m-0;
@@ -12,4 +14,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+
+button{
+  cursor: pointer;
+  
 }

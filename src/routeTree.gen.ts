@@ -10,8 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProfileRouteImport } from './routes/profile'
-import { Route as MarketRouteImport } from './routes/market'
+import { Route as Index2RouteImport } from './routes/index2'
 import { Route as CartRouteImport } from './routes/cart'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 
 const ProfileRoute = ProfileRouteImport.update({
@@ -19,14 +20,19 @@ const ProfileRoute = ProfileRouteImport.update({
   path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MarketRoute = MarketRouteImport.update({
-  id: '/market',
-  path: '/market',
+const Index2Route = Index2RouteImport.update({
+  id: '/index2',
+  path: '/index2',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CartRoute = CartRouteImport.update({
   id: '/cart',
   path: '/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -37,35 +43,39 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/cart': typeof CartRoute
-  '/market': typeof MarketRoute
+  '/index2': typeof Index2Route
   '/profile': typeof ProfileRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/cart': typeof CartRoute
-  '/market': typeof MarketRoute
+  '/index2': typeof Index2Route
   '/profile': typeof ProfileRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/cart': typeof CartRoute
-  '/market': typeof MarketRoute
+  '/index2': typeof Index2Route
   '/profile': typeof ProfileRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/cart' | '/market' | '/profile'
+  fullPaths: '/' | '/admin' | '/cart' | '/index2' | '/profile'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cart' | '/market' | '/profile'
-  id: '__root__' | '/' | '/cart' | '/market' | '/profile'
+  to: '/' | '/admin' | '/cart' | '/index2' | '/profile'
+  id: '__root__' | '/' | '/admin' | '/cart' | '/index2' | '/profile'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
   CartRoute: typeof CartRoute
-  MarketRoute: typeof MarketRoute
+  Index2Route: typeof Index2Route
   ProfileRoute: typeof ProfileRoute
 }
 
@@ -78,11 +88,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/market': {
-      id: '/market'
-      path: '/market'
-      fullPath: '/market'
-      preLoaderRoute: typeof MarketRouteImport
+    '/index2': {
+      id: '/index2'
+      path: '/index2'
+      fullPath: '/index2'
+      preLoaderRoute: typeof Index2RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cart': {
@@ -90,6 +100,13 @@ declare module '@tanstack/react-router' {
       path: '/cart'
       fullPath: '/cart'
       preLoaderRoute: typeof CartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -104,8 +121,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
   CartRoute: CartRoute,
-  MarketRoute: MarketRoute,
+  Index2Route: Index2Route,
   ProfileRoute: ProfileRoute,
 }
 export const routeTree = rootRouteImport
