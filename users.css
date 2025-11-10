@@ -1,0 +1,64 @@
+/* User Dashboard Container */
+body {
+    background: #212529; 
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+
+#dashboard {
+    width: 100%;
+    margin: 0;
+    padding: 32px;
+    background: #23272b; 
+    min-height: 100vh;   
+    box-sizing: border-box;
+}
+
+/* Welcome text */
+#dashboard h2 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* Users table */
+#dashboard table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #2c3034;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#dashboard table th,
+#dashboard table td {
+    padding: 14px 18px;
+    text-align: left;
+    font-size: 1rem;
+    color: #e2e2e2;
+}
+
+#dashboard table th {
+    background: #343a40;
+    font-weight: 600;
+    color: #fff;
+}
+
+#dashboard table tr:nth-child(even) {
+    background: #2b2f33;
+}
+
+#dashboard table tr:hover {
+    background: #3a3f44;
+}
+
+/* Logout button */
+#dashboard .btn-primary {
+    margin-top: 20px;
+    display: inline-block;
+}
