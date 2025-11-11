@@ -32,7 +32,7 @@ try {
             $mail->verifyAccount($email, $code);
 
             
-            header("Location: /IAP-GROUP-PROJECT/index.php?form=twofa");
+            header("Location: /SE-GROUP-PROJECT/index.php?form=twofa");
             exit();
         } else {
             echo "Invalid password.";
