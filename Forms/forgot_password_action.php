@@ -34,11 +34,11 @@ try {
         $_SESSION['reset_pending_email'] = $email;
 
         
-        header("Location: /IAP-GROUP-PROJECT/index.php?form=resetcode");
+        header("Location: /SE-GROUP-PROJECT/index.php?form=resetcode");
         exit();
     } else {
        
-        header("Location: /IAP-GROUP-PROJECT/index.php?form=forgot_password&error=EmailNotFound");
+        header("Location: /SE-GROUP-PROJECT/index.php?form=forgot_password&error=EmailNotFound");
         exit();
     }
 

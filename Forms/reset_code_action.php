@@ -8,7 +8,7 @@ $current_time = date('Y-m-d H:i:s');
 
 if (!preg_match('/^\d{6}$/', $entered_code)) {
   
-    header("Location: /IAP-GROUP-PROJECT/index.php?form=resetcode&error=InvalidCodeFormat");
+    header("Location: /SE-GROUP-PROJECT/index.php?form=resetcode&error=InvalidCodeFormat");
     exit();
 }
 
@@ -31,14 +31,14 @@ try {
         unset($_SESSION['reset_pending_email']); 
 
       
-        header("Location: /IAP-GROUP-PROJECT/index.php?form=newpassword");
+        header("Location: /SE-GROUP-PROJECT/index.php?form=newpassword");
         exit();
 
    
 
 } else {
   
-    header("Location: /IAP-GROUP-PROJECT/index.php?form=resetcode&error=InvalidOrExpiredCode");
+    header("Location: /SE-GROUP-PROJECT/index.php?form=resetcode&error=InvalidOrExpiredCode");
     exit();
 }
 
