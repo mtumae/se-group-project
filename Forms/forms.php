@@ -4,6 +4,147 @@ class Forms{
     public function signup(){
         ?>
         <form  action ="Forms/signup_action.php" method="POST">
+            <style>
+                body {
+    background: #212529;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #23272b;
+    border-radius: 0 0 16px 16px;
+    text-align: center;
+    padding: 32px 0 16px 0;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+#page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 60vh;
+}
+
+#form-section {
+    width: 100%;
+    max-width: 420px;
+}
+
+form {
+    background: #23272b; 
+    border-radius: 16px;
+    padding: 32px 32px 16px 32px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    color: #e2e2e2;
+}
+
+input.form-control {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #eaf1fb;
+    font-size: 1rem;
+    margin-bottom: 4px;
+    color: #222;
+}
+
+input.form-control:focus {
+    outline: 2px solid #007bff;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+}
+
+#login-redirect-container, #create-account-container {
+    margin-top: 16px;
+    display: inline-block;
+}
+
+#login-redirect-container a, #create-account-container a {
+    color: #3399ff;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-left: 12px;
+}
+
+#login-redirect-container a:hover, #create-account-container a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    margin-top: 32px;
+    text-align: center;
+    color: #b0b0b0;
+    font-size: 0.95rem;
+}
+
+.footer .row {
+    margin-bottom: 8px;
+}
+
+.footer a {
+    color: #3399ff;
+    margin: 0 8px;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.footer ul li a {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.footer ul li a:hover {
+    color: #fff;
+}
+            </style>
         <h1 style="text-align:center;">Sign up</h1>
             <div class="form-group">
                     <label  for="username">Full Name</label>
@@ -32,7 +173,145 @@ class Forms{
 
     public function login() {
         ?>
-        <form method="POST" action="Forms/login_action.php">
+        <form method="POST" action="Forms/login_action.php"><style>body {
+    background: #212529;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #23272b;
+    border-radius: 0 0 16px 16px;
+    text-align: center;
+    padding: 32px 0 16px 0;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+#page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 60vh;
+}
+
+#form-section {
+    width: 100%;
+    max-width: 420px;
+}
+
+form {
+    background: #23272b; 
+    border-radius: 16px;
+    padding: 32px 32px 16px 32px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    color: #e2e2e2;
+}
+
+input.form-control {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #eaf1fb;
+    font-size: 1rem;
+    margin-bottom: 4px;
+    color: #222;
+}
+
+input.form-control:focus {
+    outline: 2px solid #007bff;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+}
+
+#login-redirect-container, #create-account-container {
+    margin-top: 16px;
+    display: inline-block;
+}
+
+#login-redirect-container a, #create-account-container a {
+    color: #3399ff;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-left: 12px;
+}
+
+#login-redirect-container a:hover, #create-account-container a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    margin-top: 32px;
+    text-align: center;
+    color: #b0b0b0;
+    font-size: 0.95rem;
+}
+
+.footer .row {
+    margin-bottom: 8px;
+}
+
+.footer a {
+    color: #3399ff;
+    margin: 0 8px;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.footer ul li a {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.footer ul li a:hover {
+    color: #fff;
+}</style>
             <h1 style="text-align:center;">Login</h1>
             <div class="form-group">
                 <label for="loginEmail">Email address</label>
@@ -58,6 +337,147 @@ class Forms{
         ?>
         <div>
             <form style="padding:40px;text-align:center;" method="POST" action="Forms/twofactor.php">
+                <style>
+                    body {
+    background: #212529;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #23272b;
+    border-radius: 0 0 16px 16px;
+    text-align: center;
+    padding: 32px 0 16px 0;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+#page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 60vh;
+}
+
+#form-section {
+    width: 100%;
+    max-width: 420px;
+}
+
+form {
+    background: #23272b; 
+    border-radius: 16px;
+    padding: 32px 32px 16px 32px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    color: #e2e2e2;
+}
+
+input.form-control {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #eaf1fb;
+    font-size: 1rem;
+    margin-bottom: 4px;
+    color: #222;
+}
+
+input.form-control:focus {
+    outline: 2px solid #007bff;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+}
+
+#login-redirect-container, #create-account-container {
+    margin-top: 16px;
+    display: inline-block;
+}
+
+#login-redirect-container a, #create-account-container a {
+    color: #3399ff;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-left: 12px;
+}
+
+#login-redirect-container a:hover, #create-account-container a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    margin-top: 32px;
+    text-align: center;
+    color: #b0b0b0;
+    font-size: 0.95rem;
+}
+
+.footer .row {
+    margin-bottom: 8px;
+}
+
+.footer a {
+    color: #3399ff;
+    margin: 0 8px;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.footer ul li a {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.footer ul li a:hover {
+    color: #fff;
+}
+                </style>
                 <h1>Two-Factor authentication</h1>
                 <p>Enter the code below</p>
                     <input style="height:80px;color:white;text-align:center;background-color:#23262b;border:none;font-size:30px;width:100%;" type="text" id="verification_code" name="verification_code" maxlength="6" placeholder="000 - 000" required>
