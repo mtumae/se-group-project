@@ -496,7 +496,7 @@ $order = $order[0];
                 </svg>
             </div>
 
-            <h1>🎉 Order Confirmed!</h1>
+            <h1> Order Confirmed!</h1>
             <p class="subtitle">
                 Your order has been successfully placed. The seller has been notified and 
                 will contact you shortly to arrange the pickup.
