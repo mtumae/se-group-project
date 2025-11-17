@@ -11,9 +11,9 @@ class HomeTest extends TestCase
     {
         $this->db = new Database([
             'db_host' => 'localhost',             
-            'db_name' => 'iap_db',                
+            'db_name' => 'strathmart',                
             'db_user' => 'root',                  
-            'db_pass' => 'Passwords$uck0'          
+            'db_pass' => '1234'          
         ]);
 
         $this->db->connect(); 
