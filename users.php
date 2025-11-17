@@ -6,7 +6,7 @@ require_once __DIR__ . '/DBConnection.php';
 
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: /iap-group-project/Forms/login.php");
+    header("Location: /SE-GROUP-PROJECT/Forms/login.php");
     exit();
 }
 

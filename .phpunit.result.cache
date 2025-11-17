@@ -1,0 +1,1 @@
+{"version":2,"defects":[],"times":{"HomeTest::testConnection":0.009,"HomeTest::testFetchCategories":0.003,"HomeTest::testDatabaseConnection":0,"HomeTest::testCategoriesAreFetched":0.003,"HomeTest::testItemsAreFetched":0.005,"HomeTest::testSearchFilterFindsMatchingItems":0.006,"HomeTest::testCategoryFilterReturnsExpectedItems":0.001,"HomeTest::testPriceFilterWorks":0.003}}
