@@ -35,7 +35,7 @@ class Components{
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                <a class="nav-link"  href="/iap-group-project/Pages/Home.php">Home</a>
+                <a class="nav-link"  href="/SE-GROUP-PROJECT/Pages/Home.php">Home</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link"  href="#">Buy</a>
@@ -43,8 +43,8 @@ class Components{
                 <?php
                 
                 $sellLink = isset($_SESSION['user_id'])
-                    ? '/iap-group-project/Pages/my_listings.php'
-                    : '/iap-group-project/Pages/sell.php';
+                    ? '/SE-GROUP-PROJECT/Pages/my_listings.php'
+                    : '/SE-GROUP-PROJECT/Pages/sell.php';
                     ?>
                 <li>
                      <a class="nav-link" href="<?= $sellLink ?>">Sell</a>
